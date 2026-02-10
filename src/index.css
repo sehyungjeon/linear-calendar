@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f4f4f5;
+  --color-text: #18181b;
+  --color-text-secondary: #a1a1aa;
+  --color-accent: #6366f1;
+  --color-accent-soft: #eef2ff;
+  --color-border: #e4e4e7;
+  --color-weekend-bg: #f0f0f3;
+  --color-holiday-text: #e11d48;
+  --color-year-divider: #d4d4d8;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.dark {
+  --color-background: #09090b;
+  --color-surface: #18181b;
+  --color-surface-alt: #27272a;
+  --color-text: #fafafa;
+  --color-text-secondary: #71717a;
+  --color-accent: #818cf8;
+  --color-accent-soft: #1e1b4b;
+  --color-border: #27272a;
+  --color-weekend-bg: #1c1917;
+  --color-holiday-text: #fb7185;
+  --color-year-divider: #3f3f46;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Smooth transitions for theme */
+body, header, div, button, input, select, textarea {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  :root {
+    --color-background: #ffffff;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f5f5f5;
+    --color-text: #000000;
+    --color-text-secondary: #666666;
+    --color-border: #cccccc;
+    --color-weekend-bg: #f0f0f0;
+    --color-accent: #4f46e5;
+  }
+
+  body {
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-year-title {
+    display: block !important;
+    text-align: center;
+    font-size: 20pt;
+    font-weight: bold;
+    padding: 8pt 0;
+    page-break-after: avoid;
+  }
+
+  .flex-1.overflow-auto {
+    overflow: visible !important;
+    height: auto !important;
+    flex: none !important;
+  }
+
+  .month-row:nth-child(6n + 1) {
+    page-break-before: always;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
